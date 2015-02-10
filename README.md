@@ -3,11 +3,13 @@
 This repo comprises the code telemetry generation for the part A project for UCLA CS239. It features a modified version of the project error-prone,
 the build process for which has been reconfigured to instrument each method, and to output all test results to file.
 
-To use this functionality, there are two basic commands:  
+To use this functionality, there are three basic commands:  
 1) mvn -Dmaven.test.skip=true package  
 &nbsp;&nbsp;&nbsp;&nbsp;Compile and instrument all project files, without running tests.  
 2) ./run-tests.sh  
 &nbsp;&nbsp;&nbsp;&nbsp;Run all tests in the package, saving all results to disk.  
+3) ./analyze-testresults.sh  
+&nbsp;&nbsp;&nbsp;&nbsp;Analyze the results of the test runs, and compute some basic statistics about them. NB: requires perl.  
 
 ### Authors:
 Alan Litteneker  
