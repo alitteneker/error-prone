@@ -13,7 +13,7 @@ To use this functionality, there are two basic commands:
 Alan Litteneker  
 Justin Morgan  
 Sam Tarin  
-Pedro Perez  
+Pedro Borges
 
 ---
 
