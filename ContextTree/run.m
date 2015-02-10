@@ -8,6 +8,9 @@ Calltree = contextTree('./TestInput/input.txt');
 stack = {};
 stacks = stackCall(stack, Calltree{1}, Calltree); %%Calltree{1} is the parent 
 
+stacks_stats = {};
+[ stacks_stats ] = passfailStats( stacks_stats, stacks, true );
+
 
 
 

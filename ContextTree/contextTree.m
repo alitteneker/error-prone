@@ -6,8 +6,13 @@
 %%%%%    tree: Calling Context Tree resulting from the prossecing of the
 %%%%%    file
 function [ tree_sctr ] = contextTree( File )
+tic
+%%%%% Used when there is no path in the name of the methods
+%%%% Just uncoment this and comment the line that goes right after it.
+ tline = filetoarray(File);
+ [token, remain] = strtok(tline(1:end));
+%[token,remain] =parse(File);
 
-tline = filetoarray(File);
 
 %%% Initialize the data structure of the tree
 is_prev_return = false; %%% Flag used to know if the previous action was to call a function or to return from one
@@ -16,10 +21,10 @@ treeNode = tree_sctr{1};
 already_child = false; %% initializes the variable that checks if a node already has the presented child
 node_index = 2;
 
-[token, remain] = strtok(tline(1:end));
 
 
-for i = 1:length(tline)
+toc
+for i = 1:length(token)
 
 
     if strcmp( token(i), 'CALL') %% there is the word CALL in the line
@@ -62,7 +67,7 @@ for i = 1:length(tline)
     end
     
 end
-
+toc
 end
 
 
