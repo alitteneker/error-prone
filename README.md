@@ -9,7 +9,7 @@ To use this functionality, there are three basic commands:
 2) ./run-tests.sh  
 &nbsp;&nbsp;&nbsp;&nbsp;Run all tests in the package, saving all results to disk.  
 3) ./analyze-testresults.sh  
-&nbsp;&nbsp;&nbsp;&nbsp;Analyze the results of the test runs, and compute some basic statistics about them. NB: requires perl.  
+&nbsp;&nbsp;&nbsp;&nbsp;Analyze the results of the test runs, and compute some basic statistics. NB: requires perl.  
 
 ### Authors:
 Alan Litteneker  
