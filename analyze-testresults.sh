@@ -4,8 +4,8 @@ pushd ./core/instrument
 perl analyze.pl
 popd
 
-rm test-results/*
-cp core/instrument/results/* test-results/
+rm test-results/*.csv
+cp core/instrument/results/*.csv test-results/
 
 echo "Results in directory ./test-results"
 
