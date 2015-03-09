@@ -224,7 +224,7 @@
           <workingDirectory>${basedir}</workingDirectory>
         </configuration>
       </plugin>
-
+      
     </plugins>
   </build>
 
@@ -271,6 +271,19 @@
       </build>
     </profile>
   </profiles>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <jvmarg value="-XX:-UseSplitVerifier"/>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
 
   <properties>
     <!-- put javac.jar on bootclasspath when executing tests -->
