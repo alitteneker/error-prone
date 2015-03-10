@@ -1,3 +1,4 @@
+method,cyclomatic_complexity
 CompilationTestHelper.CompilationTestHelper,1
 CompilationTestHelper.newInstance,1
 CompilationTestHelper.newInstance,1
