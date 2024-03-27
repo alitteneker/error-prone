@@ -8,6 +8,7 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Label;
 
 public class Instrumenter {
     public static void main(final String args[]) throws Exception {
@@ -53,7 +54,7 @@ class MethodAdapter extends MethodVisitor implements Opcodes {
         mv.visitLdcInsn("CALL " + owner + "." + name);
         mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
 
-        /* do call */
+        /* Do call */
         mv.visitMethodInsn(opcode, owner, name, desc, itf);
 
         /* System.err.println("RETURN" + name);  */
@@ -61,5 +62,18 @@ class MethodAdapter extends MethodVisitor implements Opcodes {
         mv.visitLdcInsn("RETURN " + owner + "." + name);
         mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
     }
+    
+    @Override
+    public void visitLineNumber(int line, Label start) {
+        /* System.err.println("LINE" + line); */
+        mv.visitFieldInsn(GETSTATIC, "java/lang/System", "err", "Ljava/io/PrintStream;");
+        mv.visitLdcInsn("LINE " + line);
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+        
+        /* Do call */
+        mv.visitLineNumber(line, start);
+    }
 }
+
+
 
